@@ -1,6 +1,17 @@
+/* ==========================================================================
+   DELICIOUS PIZZA - INTRO CSS (PALETA AZUL, BLANCO Y NEGRO)
+   Reemplazo total de elementos amarillos por Azul, Blanco y Negro.
+   ========================================================================== */
+
 :root {
-    --intro-bg: #0a0a0a;
-    --accent-color: #ffd700;
+    /* Paleta de Colores (Sin Amarillo) */
+    --color-fondo-negro: #000000;       /* Fondo Negro */
+    --color-fondo-oscuro: #0f172a;      /* Negro Azabache */
+    --color-texto-blanco: #ffffff;     /* Texto Blanco */
+    --color-azul-principal: #2563eb;   /* Azul Real (Reemplaza Amarillo) */
+    --color-azul-brillante: #3b82f6;   /* Azul Ciano/Brillante */
+    --color-azul-claro: #60a5fa;       /* Azul Claro para brillo */
+    --color-texto-gris: #94a3b8;      /* Gris para subtítulos */
 }
 
 * {
@@ -10,141 +21,111 @@
 }
 
 body {
-    background-color: var(--intro-bg);
+    background-color: var(--color-fondo-negro);
+    color: var(--color-texto-blanco);
+    font-family: 'Outfit', sans-serif;
     overflow: hidden;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Outfit', sans-serif;
 }
 
+/* Contenedor Principal de la Introducción */
 .intro-container {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at center, #0f172a 0%, #000000 100%);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+    text-align: center;
 }
 
-.logo-wrapper {
-    position: relative;
-    width: 80%;
-    max-width: 800px;
-    opacity: 0;
-    transform: scale(0.5);
-    animation: cinematicEntrance 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.logo-img {
-    width: 100%;
-    height: auto;
-    filter: drop-shadow(0 0 30px rgba(0, 0, 0, 0.8));
-    mask-image: linear-gradient(to right, transparent, black, transparent);
-    mask-size: 200% 100%;
-    animation: glintEffect 5s linear forwards;
-}
-
-.overlay-text {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 1.2rem;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: center;
-}
-
-/* Animations */
-
-@keyframes cinematicEntrance {
-    0% {
-        opacity: 0;
-        transform: scale(0.5) translateY(20px);
-        filter: blur(10px);
-    }
-    20% {
-        opacity: 1;
-        filter: blur(0px);
-    }
-    80% {
-        opacity: 1;
-        transform: scale(1.1) translateY(0);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1.05) translateY(0);
-    }
-}
-
-@keyframes glintEffect {
-    0% {
-        mask-position: 150% 0%;
-    }
-    100% {
-        mask-position: -50% 0%;
-    }
-}
-
-.fly-in-char {
-    display: inline-block;
-    opacity: 0;
-    transform: var(--start-transform) rotate(90deg);
-    animation: flyInChar 1.5s cubic-bezier(0.2, 1, 0.3, 1) forwards;
-}
-
-@keyframes flyInChar {
-    to {
-        opacity: 0.8;
-        transform: translate(0, 0) rotate(0deg);
-    }
-}
-
-/* Particle effect container */
+/* Partículas de Fondo en Azul */
 .particles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 40%);
     pointer-events: none;
 }
 
-.particle {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.5;
-    animation: floatParticle 5s linear infinite;
+/* Wrapper del Logo */
+.logo-wrapper {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 25px;
+    animation: fadeInScale 1.2s ease-out forwards;
 }
 
-@keyframes floatParticle {
+.logo-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--color-azul-principal); /* Reemplazado borde amarillo por Azul */
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.5), 0 0 60px rgba(59, 130, 246, 0.3);
+    transition: transform 0.4s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+    border-color: var(--color-texto-blanco);
+}
+
+/* Texto Bienvenidos (Reemplazado el amarillo por Azul & Blanco) */
+.overlay-text {
+    position: relative;
+    z-index: 2;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--color-texto-blanco);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 15px rgba(37, 99, 235, 0.8), 0 0 30px rgba(59, 130, 246, 0.5);
+    animation: fadeInUp 1.5s ease-out forwards;
+}
+
+/* Destacados en texto (en lugar de amarillo, azul o blanco) */
+.text-highlight-blue {
+    color: var(--color-azul-brillante);
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+}
+
+.text-white {
+    color: var(--color-texto-blanco);
+}
+
+.text-black {
+    color: var(--color-fondo-negro);
+}
+
+/* Animaciones */
+@keyframes fadeInScale {
     0% {
-        transform: translateY(0) rotate(0deg);
         opacity: 0;
-    }
-    50% {
-        opacity: 0.5;
+        transform: scale(0.7);
     }
     100% {
-        transform: translateY(-100vh) rotate(360deg);
-        opacity: 0;
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
-/* Transitions for page fade out */
-.fade-out {
-    animation: pageFadeOut 0.8s ease-in-out forwards;
-}
-
-@keyframes pageFadeOut {
-    to {
+@keyframes fadeInUp {
+    0% {
         opacity: 0;
-        visibility: hidden;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

@@ -3,21 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delicius Pizza | Cargando Sabor...</title>
+    <title>Delicious Pizza | Ventas y Domicilios en Tocaima</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/intro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="intro-container">
-        <div class="particles"></div>
-        <div class="logo-wrapper">
-            <img src="imagen/764d1009-25b6-477b-96ec-b14b24e8337d.jpg" alt="Delicius Pizza Logo" class="logo-img">
-        </div>
-        <div class="overlay-text">Bienvenidos</div>
-    </div>
 
-    <script src="js/intro.js"></script>
+    <!-- Navegación Principal -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="imagen/764d1009-25b6-477b-96ec-b14b24e8337d.jpg" alt="Logo Delicious Pizza" class="nav-logo-img">
+                <span class="logo-text"><span class="logo-accent">DELICIOUS</span> PIZZA</span>
+            </a>
+            <nav class="nav-menu" id="navMenu">
+                <a href="#inicio" class="nav-link active">Inicio</a>
+                <a href="#desafios" class="nav-link">Desafíos</a>
+                <a href="#objetivos" class="nav-link">Objetivos</a>
+                <a href="#identidad" class="nav-link">Identidad</a>
+                <a href="#catalogo" class="nav-link">Catálogo</a>
+                <a href="#expansion" class="nav-link">Expansión</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#catalogo" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pedir Domicilio</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Hero / Inicio (Página Principal con Imagen Real) -->
+    <section id="inicio" class="hero bg-black">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="badge badge-blue"><i class="fas fa-map-marker-alt"></i> Tocaima, Cundinamarca</span>
+                <h1 class="hero-title text-white">
+                    <span class="text-blue">DELICIOUS</span> PIZZA
+                </h1>
+                <h2 class="hero-subtitle-tag text-white">
+                    Implementación web para ventas y Domicilios en Tocaima, Cundinamarca
+                </h2>
+                <p class="hero-highlight text-blue-bright">
+                    IMPULSANDO GANANCIAS Y COMPETITIVIDAD
+                </p>
+                <div class="hero-buttons">
+                    <a href="#catalogo" class="btn btn-primary">Ver Menú & Productos</a>
+                    <a href="#contacto" class="btn btn-secondary">Hacer Pedido</a>
+                </div>
+            </div>
+            <div class="hero-card-preview">
+                <div class="pizza-hero-image-wrapper">
+                    <img src="imagen/pizza_artesanal.jpg" alt="Delicious Pizza Artesanal" class="hero-featured-img">
+                    <div class="hero-img-badge">
+                        <span><i class="fas fa-star"></i> Receta Tradicional de 20 Años</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Desafíos del Mercado -->
+    <section id="desafios" class="section-dark">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title text-blue">DESAFÍOS DEL MERCADO</h2>
+                <p class="section-description text-gray">Modernización y transformación digital para el sector gastronómico local.</p>
+            </div>
+            <div class="challenges-grid">
+                <div class="card challenge-card">
+                    <div class="card-icon text-blue"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3>El Problema</h3>
+                    <p><strong>Delicious Pizza</strong> enfrenta un estancamiento competitivo debido a su nula presencia digital. Al carecer de sitio web y canales de comunicación online, sufre de baja visibilidad y capacidad limitada para captar nuevos clientes.</p>
+                </div>
+                <div class="card challenge-card">
+                    <div class="card-icon text-blue"><i class="fas fa-bullseye"></i></div>
+                    <h3>El Contexto</h3>
+                    <p>Para ser competitivos digitalmente, necesitamos un catálogo constante y productos de calidad que lleguen frescos a la puerta de la casa de nuestros clientes en Tocaima y sus alrededores.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Objetivos -->
+    <section id="objetivos" class="section-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title text-black">OBJETIVO GENERAL</h2>
+                <div class="metric-badge">100%</div>
+                <h3 class="text-blue metric-subtitle">Interactividad y agilidad Digital</h3>
+                <p class="section-description text-dark">
+                    Desarrollar una página web interactiva para agilizar ventas y domicilios en Tocaima, fortaleciendo la competitividad local y el reconocimiento Departamental.
+                </p>
+            </div>
+
+            <h3 class="text-center text-black section-subtitle">OBJETIVOS ESPECÍFICOS</h3>
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="icon-wrapper"><i class="fas fa-utensils"></i></div>
+                    <h3 class="text-blue">Calidad</h3>
+                    <p>Mantener el sabor característico de nuestras pizzas artesanales.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon-wrapper"><i class="fas fa-bolt"></i></div>
+                    <h3 class="text-blue">Eficiencia</h3>
+                    <p>Servicio amable, efectivo y despacho rápido a domicilio.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon-wrapper"><i class="fas fa-heart"></i></div>
+                    <h3 class="text-blue">Fidelidad</h3>
+                    <p>Atraer nuevos clientes y cuidar la comunidad de clientes actuales.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon-wrapper"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-blue">Mejora</h3>
+                    <p>Adaptación constante a las exigencias y tendencias de la competencia digital.</p>
+                </div>
+                <div class="card feature-card">
+                    <div class="icon-wrapper"><i class="fas fa-store"></i></div>
+                    <h3 class="text-blue">Expansión</h3>
+                    <p>Apertura escalonada de nuevos puntos de venta en Cundinamarca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nuestra Identidad (Misión & Visión) -->
+    <section id="identidad" class="section-dark">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title text-blue">NUESTRA IDENTIDAD</h2>
+                <p class="section-description text-gray">Más de dos décadas de tradición gastronómica familiar.</p>
+            </div>
+            <div class="identity-grid">
+                <div class="card identity-card">
+                    <h3 class="text-blue">MISIÓN</h3>
+                    <p>Brindar alimentos de alta calidad con nuestra receta tradicional de más de 20 años. Garantizamos un servicio amable y ágil para todas las edades.</p>
+                </div>
+                <div class="card identity-card">
+                    <h3 class="text-blue">VISIÓN</h3>
+                    <p>Ser una marca reconocida regionalmente por calidad y servicio, logrando expandirnos sin perder nuestra esencia familiar y compromiso con el cliente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Catálogo Digital con Galería de Fotos Reales -->
+    <section id="catalogo" class="section-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title text-black">CATÁLOGO DIGITAL</h2>
+                <p class="section-description text-dark">Calidad gourmet en la comodidad de su casa</p>
+            </div>
+
+            <!-- Menú de Selección / Pestañas de Productos -->
+            <div class="catalog-gallery">
+                <h3 class="gallery-category-title text-blue"><i class="fas fa-pizza-slice"></i> Nuestras Pizzas Destacadas</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/pizza_artesanal.jpg" alt="Pizza Familiar Especial con Maíz y Nachos" class="product-img">
+                            <span class="product-badge">Especial</span>
+                        </div>
+                        <div class="product-info">
+                            <h4>Pizza Familiar Artesanal</h4>
+                            <p>Abundante queso fundido, maíz tierno dulce y topping crocante de nachos. Receta artesanal de 20 años.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/RUEDA DE PIZZA FAMILIAR.jpg" alt="Rueda de Pizza Familiar" class="product-img">
+                            <span class="product-badge">Familiar</span>
+                        </div>
+                        <div class="product-info">
+                            <h4>Rueda de Pizza Familiar</h4>
+                            <p>Pizza gigante de masa crujiente, perfecta para compartir en reuniones familiares.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/Porcion hawaiana.jpg" alt="Porción Hawaiana" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Porción Hawaiana</h4>
+                            <p>La clásica combinación de piña calada dulce, jamón seleccionado y queso derretido.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/Porcion Peperoni.jpg" alt="Porción Peperoni" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Porción Peperoni</h4>
+                            <p>Rodajas de pepperoni premium ligeramente dorado con especias tradicionales.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/Porcion carnes.jpg" alt="Porción Carnes" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Porción Especial de Carnes</h4>
+                            <p>Cargada con carne desmechada, tocineta, salchicha y jamón con queso mozzarella.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/Porcion ranchera.jpg" alt="Porción Ranchera" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Porción Ranchera</h4>
+                            <p>Sabor ahumado intenso con salchicha ranchera, maíz tierno y tocineta crocante.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección de Snacks y Panzerottis -->
+                <h3 class="gallery-category-title text-blue margin-top-60"><i class="fas fa-hamburger"></i> Snacks & Entradas</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/Panzerotis.jpg" alt="Panzerottis Rellenos" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Panzerottis Rellenos</h4>
+                            <p>Horneados doraditos, rellenos de mucho queso fundido y jamón o carne de tu elección.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/Porcion criolla.jpg" alt="Porción Criolla" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Porción Criolla</h4>
+                            <p>Ingredientes locales seleccionados con la sazón tradicional de la casa.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-img-wrapper">
+                            <img src="imagen/Porcion mexicana.jpg" alt="Porción Mexicana" class="product-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Porción Mexicana</h4>
+                            <p>Un toque picante con carne molida sazonada, jalapeños y frijol refrito.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección de Bebidas Frías -->
+                <h3 class="gallery-category-title text-blue margin-top-60"><i class="fas fa-glass-whiskey"></i> Bebidas Refrescantes</h3>
+                <div class="products-grid drinks-grid">
+                    <div class="product-card drink-card">
+                        <div class="product-img-wrapper drink-img-wrapper">
+                            <img src="imagen/quatro_15l.jpg" alt="Quatro Toronja 1.5L" class="product-img drink-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Quatro Toronja 1.5L</h4>
+                            <p>Gaseosa de toronja súper refrescante para acompañar tus pizzas.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card drink-card">
+                        <div class="product-img-wrapper drink-img-wrapper">
+                            <img src="imagen/quatro_350ml.jpg" alt="Quatro Vidrio 350ml" class="product-img drink-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Quatro Toronja Vidrio 350ml</h4>
+                            <p>Presentación personal en botella de vidrio helada.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card drink-card">
+                        <div class="product-img-wrapper drink-img-wrapper">
+                            <img src="imagen/sprite_15l.jpg" alt="Sprite 1.5L" class="product-img drink-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Sprite Lima-Limón 1.5L</h4>
+                            <p>Gaseosa familiar fresca y burbujeante sabor a lima-limón.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card drink-card">
+                        <div class="product-img-wrapper drink-img-wrapper">
+                            <img src="imagen/sprite_400ml.jpg" alt="Sprite 400ml" class="product-img drink-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Sprite 400ml</h4>
+                            <p>Botella personal práctica para llevar contigo.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card drink-card">
+                        <div class="product-img-wrapper drink-img-wrapper">
+                            <img src="imagen/Coca-Cola 1.5L.jpg" alt="Coca-Cola 1.5L" class="product-img drink-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Coca-Cola 1.5L</h4>
+                            <p>El sabor clásico de Coca-Cola en presentación familiar.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+
+                    <div class="product-card drink-card">
+                        <div class="product-img-wrapper drink-img-wrapper">
+                            <img src="imagen/Avena cubana.jpg" alt="Avena Cubana" class="product-img drink-img">
+                        </div>
+                        <div class="product-info">
+                            <h4>Avena Cubana Helada</h4>
+                            <p>Cremosa avena tradicional preparada con la receta secreta de la casa.</p>
+                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Línea de Expansión -->
+    <section id="expansion" class="section-dark">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title text-blue">HACIA LA EXPANSIÓN</h2>
+                <p class="section-description text-gray">Ruta estratégica de crecimiento digital y territorial.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4 class="text-blue">FASE 1</h4>
+                    <p>Lanzamiento web en Tocaima</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4 class="text-blue">FASE 2</h4>
+                    <p>Optimización de domicilios</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4 class="text-blue">FASE 3</h4>
+                    <p>Reconocimiento regional</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <h4 class="text-blue">FASE 4</h4>
+                    <p>Nuevos puntos de venta</p>
+                </div>
+            </div>
+            <div class="text-center margin-top-40">
+                <h3 class="text-blue-bright">EL SABOR DE SIEMPRE, AHORA DIGITAL</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto & Domicilios -->
+    <section id="contacto" class="section-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title text-black">Haz tu Pedido a Domicilio</h2>
+                <h3 class="text-blue">Delicious Pizza Tocaima</h3>
+                <p class="section-description text-dark font-weight-bold">Te enviamos tu pizza caliente y crujiente hasta la puerta de tu casa.</p>
+            </div>
+            <div class="contact-wrapper bg-black text-white">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label text-white">Nombre Completo</label>
+                        <input type="text" id="name" class="form-input" placeholder="Ej. Carlos Pérez" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label text-white">Teléfono de Contacto (WhatsApp)</label>
+                        <input type="tel" id="phone" class="form-input" placeholder="Ej. 310 123 4567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="form-label text-white">Dirección en Tocaima</label>
+                        <input type="text" id="address" class="form-input" placeholder="Ej. Calle 5 # 4-12 Barrio Centro" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label text-white">Detalle de tu Pedido</label>
+                        <textarea id="message" rows="4" class="form-input" placeholder="Ej. 1 Pizza Familiar Especial + 1 Quatro de 1.5L" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fab fa-whatsapp"></i> Confirmar Pedido por WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="footer bg-black">
+        <div class="container footer-container">
+            <div class="footer-logo">
+                <img src="imagen/764d1009-25b6-477b-96ec-b14b24e8337d.jpg" alt="Delicious Pizza Logo" class="footer-logo-img">
+                <span>Delicious Pizza - Tocaima</span>
+            </div>
+            <p>&copy; 2026 Delicious Pizza - Tocaima, Cundinamarca. Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+{
+  "name": "pagina-web-azul-blanco-negro",
+  "version": "1.0.0",
+  "description": "Sitio web responsivo en azul, blanco y negro listo para despliegue.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": ["html", "css", "despliegue", "vercel", "netlify", "docker"],
+  "author": "",
+  "license": "ISC"
+}
