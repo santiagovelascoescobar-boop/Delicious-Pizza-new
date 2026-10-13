@@ -28,6 +28,7 @@
                 <a href="#catalogo" class="nav-link">Catálogo</a>
                 <a href="#expansion" class="nav-link">Expansión</a>
                 <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="javascript:void(0)" class="nav-link nav-admin-link" id="navAdminLink" onclick="openAdminModal()"><i class="fas fa-lock"></i> Admin</a>
             </nav>
             <div class="nav-actions">
                 <a href="#catalogo" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Pedir Domicilio</a>
@@ -37,6 +38,17 @@
             </div>
         </div>
     </header>
+ 
+    <!-- Barra de Estado de Administrador (Visible solo si hay sesión activa) -->
+    <div id="adminStatusBar" class="admin-status-bar" style="display: none;">
+        <div class="container admin-bar-content">
+            <span class="admin-bar-info"><i class="fas fa-user-shield"></i> <strong>Modo Administrador:</strong> santiagovelascoescobar@gmail.com</span>
+            <div class="admin-bar-actions">
+                <button class="btn btn-sm btn-admin-bar" onclick="openAdminModal()"><i class="fas fa-sliders-h"></i> Panel de Productos</button>
+                <button class="btn btn-sm btn-admin-logout" onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Sección Hero / Inicio (Página Principal con Imagen Real) -->
     <section id="inicio" class="hero bg-black">
@@ -161,186 +173,30 @@
                 <p class="section-description text-dark">Calidad gourmet en la comodidad de su casa</p>
             </div>
 
-            <!-- Menú de Selección / Pestañas de Productos -->
+            <!-- Menú de Selección / Pestañas de Productos Dinámicos -->
             <div class="catalog-gallery">
-                <h3 class="gallery-category-title text-blue"><i class="fas fa-pizza-slice"></i> Nuestras Pizzas Destacadas</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/pizza_artesanal.jpg" alt="Pizza Familiar Especial con Maíz y Nachos" class="product-img">
-                            <span class="product-badge">Especial</span>
-                        </div>
-                        <div class="product-info">
-                            <h4>Pizza Familiar Artesanal</h4>
-                            <p>Abundante queso fundido, maíz tierno dulce y topping crocante de nachos. Receta artesanal de 20 años.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/RUEDA DE PIZZA FAMILIAR.jpg" alt="Rueda de Pizza Familiar" class="product-img">
-                            <span class="product-badge">Familiar</span>
-                        </div>
-                        <div class="product-info">
-                            <h4>Rueda de Pizza Familiar</h4>
-                            <p>Pizza gigante de masa crujiente, perfecta para compartir en reuniones familiares.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/Porcion hawaiana.jpg" alt="Porción Hawaiana" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Porción Hawaiana</h4>
-                            <p>La clásica combinación de piña calada dulce, jamón seleccionado y queso derretido.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/Porcion Peperoni.jpg" alt="Porción Peperoni" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Porción Peperoni</h4>
-                            <p>Rodajas de pepperoni premium ligeramente dorado con especias tradicionales.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/Porcion carnes.jpg" alt="Porción Carnes" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Porción Especial de Carnes</h4>
-                            <p>Cargada con carne desmechada, tocineta, salchicha y jamón con queso mozzarella.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/Porcion ranchera.jpg" alt="Porción Ranchera" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Porción Ranchera</h4>
-                            <p>Sabor ahumado intenso con salchicha ranchera, maíz tierno y tocineta crocante.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
+                <div class="catalog-category-header">
+                    <h3 class="gallery-category-title text-blue"><i class="fas fa-pizza-slice"></i> Nuestras Pizzas Destacadas</h3>
+                </div>
+                <div class="products-grid" id="pizzasContainer">
+                    <!-- Productos inyectados dinámicamente -->
                 </div>
 
                 <!-- Sección de Snacks y Panzerottis -->
-                <h3 class="gallery-category-title text-blue margin-top-60"><i class="fas fa-hamburger"></i> Snacks & Entradas</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/Panzerotis.jpg" alt="Panzerottis Rellenos" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Panzerottis Rellenos</h4>
-                            <p>Horneados doraditos, rellenos de mucho queso fundido y jamón o carne de tu elección.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/Porcion criolla.jpg" alt="Porción Criolla" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Porción Criolla</h4>
-                            <p>Ingredientes locales seleccionados con la sazón tradicional de la casa.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-img-wrapper">
-                            <img src="imagen/Porcion mexicana.jpg" alt="Porción Mexicana" class="product-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Porción Mexicana</h4>
-                            <p>Un toque picante con carne molida sazonada, jalapeños y frijol refrito.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
+                <div class="catalog-category-header margin-top-60">
+                    <h3 class="gallery-category-title text-blue"><i class="fas fa-hamburger"></i> Snacks & Entradas</h3>
+                </div>
+                <div class="products-grid" id="snacksContainer">
+                    <!-- Productos inyectados dinámicamente -->
                 </div>
 
                 <!-- Sección de Bebidas Frías -->
-                <h3 class="gallery-category-title text-blue margin-top-60"><i class="fas fa-glass-whiskey"></i> Bebidas Refrescantes</h3>
-                <div class="products-grid drinks-grid">
-                    <div class="product-card drink-card">
-                        <div class="product-img-wrapper drink-img-wrapper">
-                            <img src="imagen/quatro_15l.jpg" alt="Quatro Toronja 1.5L" class="product-img drink-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Quatro Toronja 1.5L</h4>
-                            <p>Gaseosa de toronja súper refrescante para acompañar tus pizzas.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card drink-card">
-                        <div class="product-img-wrapper drink-img-wrapper">
-                            <img src="imagen/quatro_350ml.jpg" alt="Quatro Vidrio 350ml" class="product-img drink-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Quatro Toronja Vidrio 350ml</h4>
-                            <p>Presentación personal en botella de vidrio helada.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card drink-card">
-                        <div class="product-img-wrapper drink-img-wrapper">
-                            <img src="imagen/sprite_15l.jpg" alt="Sprite 1.5L" class="product-img drink-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Sprite Lima-Limón 1.5L</h4>
-                            <p>Gaseosa familiar fresca y burbujeante sabor a lima-limón.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card drink-card">
-                        <div class="product-img-wrapper drink-img-wrapper">
-                            <img src="imagen/sprite_400ml.jpg" alt="Sprite 400ml" class="product-img drink-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Sprite 400ml</h4>
-                            <p>Botella personal práctica para llevar contigo.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card drink-card">
-                        <div class="product-img-wrapper drink-img-wrapper">
-                            <img src="imagen/Coca-Cola 1.5L.jpg" alt="Coca-Cola 1.5L" class="product-img drink-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Coca-Cola 1.5L</h4>
-                            <p>El sabor clásico de Coca-Cola en presentación familiar.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card drink-card">
-                        <div class="product-img-wrapper drink-img-wrapper">
-                            <img src="imagen/Avena cubana.jpg" alt="Avena Cubana" class="product-img drink-img">
-                        </div>
-                        <div class="product-info">
-                            <h4>Avena Cubana Helada</h4>
-                            <p>Cremosa avena tradicional preparada con la receta secreta de la casa.</p>
-                            <a href="#contacto" class="btn btn-primary btn-sm">Pedir Ahora</a>
-                        </div>
-                    </div>
+                <div class="catalog-category-header margin-top-60">
+                    <h3 class="gallery-category-title text-blue"><i class="fas fa-glass-whiskey"></i> Bebidas Refrescantes</h3>
                 </div>
-
+                <div class="products-grid drinks-grid" id="bebidasContainer">
+                    <!-- Productos inyectados dinámicamente -->
+                </div>
             </div>
         </div>
     </section>
@@ -420,14 +276,184 @@
                 <span>Delicious Pizza - Tocaima</span>
             </div>
             <p>&copy; 2026 Delicious Pizza - Tocaima, Cundinamarca. Todos los derechos reservados.</p>
-            <div class="social-links">
-                <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+                <a href="javascript:void(0)" id="footerAdminLink" onclick="openAdminModal()" class="footer-admin-link">
+                    <i class="fas fa-user-shield"></i> Acceso Administrador
+                </a>
             </div>
         </div>
     </footer>
 
+    <!-- MODAL 1: INICIO DE SESIÓN DE ADMINISTRADOR -->
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-box modal-box-sm">
+            <div class="modal-header">
+                <div class="modal-header-title">
+                    <i class="fas fa-lock text-blue"></i>
+                    <h3>Acceso de Administración</h3>
+                </div>
+                <button class="modal-close-btn" onclick="closeLoginModal()" aria-label="Cerrar">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-subtitle">Ingrese sus credenciales para administrar y modificar el catálogo de productos de Delicious Pizza.</p>
+                <form id="adminLoginForm" class="modal-form">
+                    <div class="form-group">
+                        <label for="loginEmail" class="form-label text-white"><i class="fas fa-envelope"></i> Correo Electrónico</label>
+                        <input type="email" id="loginEmail" class="form-input" placeholder="santiagovelascoescobar@gmail.com" required autocomplete="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPass" class="form-label text-white"><i class="fas fa-key"></i> Contraseña</label>
+                        <input type="password" id="loginPass" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: PANEL DE ADMINISTRACIÓN Y MODIFICACIÓN DE PRODUCTOS -->
+    <div id="adminModal" class="modal-overlay">
+        <div class="modal-box modal-box-lg">
+            <div class="modal-header">
+                <div class="modal-header-title">
+                    <i class="fas fa-pizza-slice text-blue"></i>
+                    <div>
+                        <h3>Panel de Administración de Productos</h3>
+                        <span class="modal-user-tag"><i class="fas fa-check-circle text-blue"></i> Conectado: santiagovelascoescobar@gmail.com</span>
+                    </div>
+                </div>
+                <div class="modal-header-actions">
+                    <button class="btn btn-sm btn-secondary" onclick="exportProductsCode()" title="Descargar archivo productos.js para GitHub">
+                        <i class="fas fa-download"></i> Exportar (.js)
+                    </button>
+                    <button class="btn btn-sm btn-secondary" onclick="copyProductsJson()" title="Copiar catálogo en formato JSON">
+                        <i class="fas fa-copy"></i> Copiar JSON
+                    </button>
+                    <button class="btn btn-sm btn-danger-outline" onclick="resetProductsToDefault()" title="Restablecer al menú inicial">
+                        <i class="fas fa-undo"></i> Restablecer
+                    </button>
+                    <button class="btn btn-sm btn-logout" onclick="logoutAdmin()" title="Cerrar Sesión">
+                        <i class="fas fa-sign-out-alt"></i> Salir
+                    </button>
+                    <button class="modal-close-btn" onclick="closeAdminModal()" aria-label="Cerrar">&times;</button>
+                </div>
+            </div>
+
+            <div class="modal-body modal-split-layout">
+                <!-- Columna Izquierda: Formulario de Creación / Edición -->
+                <div class="modal-form-column">
+                    <div class="panel-card">
+                        <div class="panel-card-header">
+                            <h4 id="formTitle"><i class="fas fa-edit text-blue"></i> Nuevo Producto</h4>
+                            <button type="button" class="btn btn-sm btn-secondary" onclick="openNewProductForm()"><i class="fas fa-plus"></i> Nuevo</button>
+                        </div>
+                        <form id="productForm" class="modal-form">
+                            <input type="hidden" id="productId">
+
+                            <div class="form-group">
+                                <label for="productName" class="form-label text-white">Nombre del Producto *</label>
+                                <input type="text" id="productName" class="form-input" placeholder="Ej. Pizza Campesina Especial" required>
+                            </div>
+
+                            <div class="form-row-2">
+                                <div class="form-group">
+                                    <label for="productCategory" class="form-label text-white">Categoría *</label>
+                                    <select id="productCategory" class="form-input" required>
+                                        <option value="pizzas">Pizzas</option>
+                                        <option value="snacks">Snacks & Entradas</option>
+                                        <option value="bebidas">Bebidas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="productPrice" class="form-label text-white">Precio (COP) *</label>
+                                    <input type="number" id="productPrice" class="form-input" placeholder="Ej. 38000" min="0" step="500" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productBadge" class="form-label text-white">Etiqueta Destacada (Opcional)</label>
+                                <input type="text" id="productBadge" class="form-input" placeholder="Ej. Especial, Familiar, Nuevo, Promoción">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="productDescription" class="form-label text-white">Descripción del Producto</label>
+                                <textarea id="productDescription" rows="2" class="form-input" placeholder="Ingredientes, preparación, características..."></textarea>
+                            </div>
+
+                            <!-- Selector de Imagen -->
+                            <div class="form-group">
+                                <label class="form-label text-white">Imagen del Producto</label>
+                                <select id="productImageSelect" class="form-input select-image-dropdown">
+                                    <!-- Opciones cargadas dinámicamente -->
+                                </select>
+                                <div class="image-input-options">
+                                    <input type="text" id="productImageCustom" class="form-input" placeholder="Ruta o URL (ej. imagen/pizza_artesanal.jpg)">
+                                    <label class="btn btn-sm btn-secondary upload-btn">
+                                        <i class="fas fa-upload"></i> Subir Foto
+                                        <input type="file" accept="image/*" style="display: none;" onchange="handleFileUpload(this)">
+                                    </label>
+                                </div>
+                                <div class="image-preview-container">
+                                    <img id="productImagePreview" src="imagen/pizza_artesanal.jpg" alt="Vista previa" class="admin-preview-img">
+                                </div>
+                            </div>
+
+                            <div class="form-group checkbox-group">
+                                <label class="checkbox-label text-white">
+                                    <input type="checkbox" id="productAvailable" checked>
+                                    <span>Disponible en el catálogo</span>
+                                </label>
+                            </div>
+
+                            <div class="form-buttons">
+                                <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-save"></i> Guardar Producto</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Lista / Tabla de Productos con Búsqueda -->
+                <div class="modal-table-column">
+                    <div class="panel-card">
+                        <div class="panel-card-header search-header">
+                            <h4><i class="fas fa-list text-blue"></i> Catálogo Actual</h4>
+                            <div class="search-input-wrapper">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" id="adminSearchInput" class="form-input form-input-search" placeholder="Buscar por nombre o categoría...">
+                            </div>
+                        </div>
+
+                        <div class="admin-table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Foto</th>
+                                        <th>Producto</th>
+                                        <th>Categoría</th>
+                                        <th>Precio</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminProductList">
+                                    <!-- Inyectado dinámicamente -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de la Aplicación -->
+    <script src="js/productos.js"></script>
+    <script src="js/admin.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

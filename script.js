@@ -13,6 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 icon.classList.toggle('fa-times');
             }
         });
+
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            });
+        });
     }
 
     // 2. Envío de Pedido a WhatsApp
